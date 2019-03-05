@@ -1,0 +1,18 @@
+{
+    "name": "react-native-althea-adyen-checkout",
+    "version": "1.0.0",
+    "description": "React native module for Adyen Checkout",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "react-native"
+    ],
+    "author": "alvin@althea.kr",
+    "license": "MIT",
+    "peerDependencies": {
+        "react-native": "^0.41.2",
+        "react-native-windows": "0.41.0-rc.1"
+    }
+}
