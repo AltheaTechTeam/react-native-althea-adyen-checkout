@@ -1,5 +1,5 @@
 
-package com.reactlibrary;
+package com.althea.adyencheckout;
 
 import java.util.Arrays;
 import java.util.Collections;
