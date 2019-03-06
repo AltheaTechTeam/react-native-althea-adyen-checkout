@@ -10,10 +10,14 @@ import com.adyen.checkout.core.handler.StartPaymentParametersHandler;
 import com.adyen.checkout.ui.CheckoutController;
 import com.adyen.checkout.ui.CheckoutSetupParameters;
 import com.adyen.checkout.ui.CheckoutSetupParametersHandler;
+import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.LifecycleEventListener;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class RNAltheaAdyenCheckoutModule extends ReactContextBaseJavaModule implements LifecycleEventListener {
 
@@ -21,17 +25,19 @@ public class RNAltheaAdyenCheckoutModule extends ReactContextBaseJavaModule impl
 
 	private final ReactApplicationContext reactContext;
 
-	private String paymentToken;
+	private JSONObject paymentToken;
+	private String     errorMessage;
 
 	public RNAltheaAdyenCheckoutModule(ReactApplicationContext reactContext) {
 
 		super(reactContext);
 		this.reactContext = reactContext;
-		this.paymentToken = "";
+		this.paymentToken = new JSONObject();
+		this.errorMessage = "";
 	}
 
 	@ReactMethod
-	public String generatePaymentToken() {
+	public void generatePaymentToken(Callback successCallback, Callback errorCallback) {
 
 		CheckoutController.startPayment(getCurrentActivity(), new CheckoutSetupParametersHandler() {
 
@@ -41,20 +47,33 @@ public class RNAltheaAdyenCheckoutModule extends ReactContextBaseJavaModule impl
 				String token     = checkoutSetupParameters.getSdkToken();
 				String returnUrl = checkoutSetupParameters.getReturnUrl();
 
-				RNAltheaAdyenCheckoutModule.this.paymentToken = token + "_" + returnUrl;
+				try {
+
+					RNAltheaAdyenCheckoutModule.this.paymentToken.put("sdkToken", token);
+					RNAltheaAdyenCheckoutModule.this.paymentToken.put("returnUrl", returnUrl);
+				} catch (JSONException exception) {
+
+					RNAltheaAdyenCheckoutModule.this.errorMessage = exception.getMessage();
+				}
 			}
 
 			@Override
 			public void onError(@NonNull CheckoutException error) {
 
+				RNAltheaAdyenCheckoutModule.this.errorMessage = error.getMessage();
 			}
 		});
 
-		return this.paymentToken;
+		if (!this.errorMessage.isEmpty()) {
+
+			errorCallback.invoke(this.errorMessage);
+		}
+
+		successCallback.invoke(this.paymentToken);
 	}
 
 	@ReactMethod
-	public void initCheckout(String session) {
+	public void initCheckout(String session, Callback errorCallback) {
 
 		CheckoutController.handlePaymentSessionResponse(getCurrentActivity(), session, new StartPaymentParametersHandler() {
 
@@ -69,8 +88,14 @@ public class RNAltheaAdyenCheckoutModule extends ReactContextBaseJavaModule impl
 			@Override
 			public void onError(@NonNull CheckoutException error) {
 
+				RNAltheaAdyenCheckoutModule.this.errorMessage = error.getMessage();
 			}
 		});
+
+		if (!this.errorMessage.isEmpty()) {
+
+			errorCallback.invoke(this.errorMessage);
+		}
 	}
 
 	@Override
@@ -82,7 +107,8 @@ public class RNAltheaAdyenCheckoutModule extends ReactContextBaseJavaModule impl
 	@Override
 	public void onHostResume() {
 
-		this.paymentToken = "";
+		this.paymentToken = new JSONObject();
+		this.errorMessage = "";
 	}
 
 	@Override
