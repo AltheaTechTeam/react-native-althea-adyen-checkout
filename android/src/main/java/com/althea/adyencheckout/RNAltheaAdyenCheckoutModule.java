@@ -1,6 +1,7 @@
 
 package com.althea.adyencheckout;
 
+import android.os.Handler;
 import android.support.annotation.NonNull;
 
 import com.adyen.checkout.core.CheckoutException;
@@ -73,22 +74,31 @@ public class RNAltheaAdyenCheckoutModule extends ReactContextBaseJavaModule impl
 	}
 
 	@ReactMethod
-	public void initCheckout(String session, Callback errorCallback) {
+	public void initCheckout(final String session, Callback errorCallback) {
 
-		CheckoutController.handlePaymentSessionResponse(getCurrentActivity(), session, new StartPaymentParametersHandler() {
+		Handler handler = new Handler(reactContext.getMainLooper());
 
-			@Override
-			public void onPaymentInitialized(@NonNull StartPaymentParameters startPaymentParameters) {
-
-				PaymentMethodHandler checkoutHandler = CheckoutController.getCheckoutHandler(startPaymentParameters);
-
-				checkoutHandler.handlePaymentMethodDetails(getCurrentActivity(), REQUEST_CODE_CHECKOUT);
-			}
+		handler.post(new Runnable() {
 
 			@Override
-			public void onError(@NonNull CheckoutException error) {
+			public void run() {
 
-				RNAltheaAdyenCheckoutModule.this.errorMessage = error.getMessage();
+				CheckoutController.handlePaymentSessionResponse(getCurrentActivity(), session, new StartPaymentParametersHandler() {
+
+					@Override
+					public void onPaymentInitialized(@NonNull StartPaymentParameters startPaymentParameters) {
+
+						PaymentMethodHandler checkoutHandler = CheckoutController.getCheckoutHandler(startPaymentParameters);
+
+						checkoutHandler.handlePaymentMethodDetails(getCurrentActivity(), REQUEST_CODE_CHECKOUT);
+					}
+
+					@Override
+					public void onError(@NonNull CheckoutException error) {
+
+						RNAltheaAdyenCheckoutModule.this.errorMessage = error.getMessage();
+					}
+				});
 			}
 		});
 
