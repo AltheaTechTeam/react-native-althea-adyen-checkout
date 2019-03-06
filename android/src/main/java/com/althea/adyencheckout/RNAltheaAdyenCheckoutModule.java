@@ -69,7 +69,7 @@ public class RNAltheaAdyenCheckoutModule extends ReactContextBaseJavaModule impl
 			errorCallback.invoke(this.errorMessage);
 		}
 
-		successCallback.invoke(this.paymentToken);
+		successCallback.invoke(this.paymentToken.toString());
 	}
 
 	@ReactMethod
