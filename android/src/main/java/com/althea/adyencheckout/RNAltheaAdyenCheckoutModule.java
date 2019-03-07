@@ -1,18 +1,21 @@
 
 package com.althea.adyencheckout;
 
+import android.content.Intent;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 
 import com.adyen.checkout.core.CheckoutException;
 import com.adyen.checkout.core.PaymentMethodHandler;
+import com.adyen.checkout.core.PaymentResult;
 import com.adyen.checkout.core.StartPaymentParameters;
 import com.adyen.checkout.core.handler.StartPaymentParametersHandler;
 import com.adyen.checkout.ui.CheckoutController;
 import com.adyen.checkout.ui.CheckoutSetupParameters;
 import com.adyen.checkout.ui.CheckoutSetupParametersHandler;
+import com.facebook.react.bridge.ActivityEventListener;
 import com.facebook.react.bridge.Callback;
-import com.facebook.react.bridge.LifecycleEventListener;
+import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
@@ -20,14 +23,17 @@ import com.facebook.react.bridge.ReactMethod;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class RNAltheaAdyenCheckoutModule extends ReactContextBaseJavaModule implements LifecycleEventListener {
+public class RNAltheaAdyenCheckoutModule extends ReactContextBaseJavaModule implements ActivityEventListener {
 
-	private static final int REQUEST_CODE_CHECKOUT = 1;
+	private static final int    REQUEST_CODE_CHECKOUT = 1;
+	private static final String E_PAYMENT_FAILED      = "E_PAYMENT_FAILED";
+	private static final String E_PAYMENT_CANCELED    = "E_PAYMENT_CANCELED";
 
 	private final ReactApplicationContext reactContext;
 
 	private JSONObject paymentToken;
 	private String     errorMessage;
+	private Promise    promise;
 
 	public RNAltheaAdyenCheckoutModule(ReactApplicationContext reactContext) {
 
@@ -74,7 +80,7 @@ public class RNAltheaAdyenCheckoutModule extends ReactContextBaseJavaModule impl
 	}
 
 	@ReactMethod
-	public void initCheckout(final String session, Callback errorCallback) {
+	public void initCheckout(final String session, final Promise promise) {
 
 		Handler handler = new Handler(reactContext.getMainLooper());
 
@@ -88,6 +94,8 @@ public class RNAltheaAdyenCheckoutModule extends ReactContextBaseJavaModule impl
 					@Override
 					public void onPaymentInitialized(@NonNull StartPaymentParameters startPaymentParameters) {
 
+						RNAltheaAdyenCheckoutModule.this.promise = promise;
+
 						PaymentMethodHandler checkoutHandler = CheckoutController.getCheckoutHandler(startPaymentParameters);
 
 						checkoutHandler.handlePaymentMethodDetails(getCurrentActivity(), REQUEST_CODE_CHECKOUT);
@@ -96,16 +104,11 @@ public class RNAltheaAdyenCheckoutModule extends ReactContextBaseJavaModule impl
 					@Override
 					public void onError(@NonNull CheckoutException error) {
 
-						RNAltheaAdyenCheckoutModule.this.errorMessage = error.getMessage();
+						RNAltheaAdyenCheckoutModule.this.promise.reject(E_PAYMENT_FAILED, error.getMessage());
 					}
 				});
 			}
 		});
-
-		if (!this.errorMessage.isEmpty()) {
-
-			errorCallback.invoke(this.errorMessage);
-		}
 	}
 
 	@Override
@@ -115,20 +118,28 @@ public class RNAltheaAdyenCheckoutModule extends ReactContextBaseJavaModule impl
 	}
 
 	@Override
-	public void onHostResume() {
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-		this.paymentToken = new JSONObject();
-		this.errorMessage = "";
+		if (requestCode == REQUEST_CODE_CHECKOUT) {
+
+			if (resultCode == PaymentMethodHandler.RESULT_CODE_OK) {
+
+				PaymentResult paymentResult = PaymentMethodHandler.Util.getPaymentResult(data);
+
+				this.promise.resolve(paymentResult.getPayload());
+
+			} else {
+
+				CheckoutException checkoutException = PaymentMethodHandler.Util.getCheckoutException(data);
+
+				if (resultCode == PaymentMethodHandler.RESULT_CODE_CANCELED) {
+
+					this.promise.reject(E_PAYMENT_CANCELED, checkoutException.getMessage());
+				} else {
+
+					this.promise.reject(E_PAYMENT_FAILED, checkoutException.getMessage());
+				}
+			}
+		}
 	}
-
-	@Override
-	public void onHostPause() {
-
-	}
-
-	@Override
-	public void onHostDestroy() {
-
-	}
-
 }
