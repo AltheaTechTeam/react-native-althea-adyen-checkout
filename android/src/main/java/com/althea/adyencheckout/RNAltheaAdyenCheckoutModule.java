@@ -1,6 +1,7 @@
 
 package com.althea.adyencheckout;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -118,7 +119,7 @@ public class RNAltheaAdyenCheckoutModule extends ReactContextBaseJavaModule impl
 	}
 
 	@Override
-	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+	public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
 
 		if (requestCode == REQUEST_CODE_CHECKOUT) {
 
@@ -141,5 +142,10 @@ public class RNAltheaAdyenCheckoutModule extends ReactContextBaseJavaModule impl
 				}
 			}
 		}
+	}
+
+	@Override
+	public void onNewIntent(Intent intent) {
+
 	}
 }
