@@ -15,7 +15,6 @@ import com.adyen.checkout.ui.CheckoutController;
 import com.adyen.checkout.ui.CheckoutSetupParameters;
 import com.adyen.checkout.ui.CheckoutSetupParametersHandler;
 import com.facebook.react.bridge.ActivityEventListener;
-import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
@@ -27,13 +26,13 @@ import org.json.JSONObject;
 public class RNAltheaAdyenCheckoutModule extends ReactContextBaseJavaModule implements ActivityEventListener {
 
 	private static final int    REQUEST_CODE_CHECKOUT = 1;
+	private static final String E_TOKEN_FAILED        = "E_TOKEN_FAILED";
 	private static final String E_PAYMENT_FAILED      = "E_PAYMENT_FAILED";
 	private static final String E_PAYMENT_CANCELED    = "E_PAYMENT_CANCELED";
 
 	private final ReactApplicationContext reactContext;
 
 	private JSONObject paymentToken;
-	private String     errorMessage;
 	private Promise    promise;
 
 	public RNAltheaAdyenCheckoutModule(ReactApplicationContext reactContext) {
@@ -41,11 +40,10 @@ public class RNAltheaAdyenCheckoutModule extends ReactContextBaseJavaModule impl
 		super(reactContext);
 		this.reactContext = reactContext;
 		this.paymentToken = new JSONObject();
-		this.errorMessage = "";
 	}
 
 	@ReactMethod
-	public void generatePaymentToken(Callback successCallback, Callback errorCallback) {
+	public void generatePaymentToken(final Promise promise) {
 
 		CheckoutController.startPayment(getCurrentActivity(), new CheckoutSetupParametersHandler() {
 
@@ -59,25 +57,20 @@ public class RNAltheaAdyenCheckoutModule extends ReactContextBaseJavaModule impl
 
 					RNAltheaAdyenCheckoutModule.this.paymentToken.put("sdkToken", token);
 					RNAltheaAdyenCheckoutModule.this.paymentToken.put("returnUrl", returnUrl);
-				} catch (JSONException exception) {
 
-					RNAltheaAdyenCheckoutModule.this.errorMessage = exception.getMessage();
+					promise.resolve(RNAltheaAdyenCheckoutModule.this.paymentToken.toString());
+				} catch (JSONException error) {
+
+					promise.reject(E_TOKEN_FAILED, error.getMessage());
 				}
 			}
 
 			@Override
 			public void onError(@NonNull CheckoutException error) {
 
-				RNAltheaAdyenCheckoutModule.this.errorMessage = error.getMessage();
+				promise.reject(E_TOKEN_FAILED, error.getMessage());
 			}
 		});
-
-		if (!this.errorMessage.isEmpty()) {
-
-			errorCallback.invoke(this.errorMessage);
-		}
-
-		successCallback.invoke(this.paymentToken.toString());
 	}
 
 	@ReactMethod
