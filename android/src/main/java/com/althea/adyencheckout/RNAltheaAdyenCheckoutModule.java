@@ -141,4 +141,19 @@ public class RNAltheaAdyenCheckoutModule extends ReactContextBaseJavaModule impl
 	public void onNewIntent(Intent intent) {
 
 	}
+
+	@Override
+	public void initialize() {
+
+		super.initialize();
+		getReactApplicationContext().addActivityEventListener(this);
+	}
+
+	@Override
+	public void onCatalystInstanceDestroy() {
+
+		super.onCatalystInstanceDestroy();
+		getReactApplicationContext().removeActivityEventListener(this);
+	}
+
 }
