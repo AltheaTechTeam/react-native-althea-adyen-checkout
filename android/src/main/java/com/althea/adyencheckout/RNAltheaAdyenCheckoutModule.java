@@ -76,6 +76,8 @@ public class RNAltheaAdyenCheckoutModule extends ReactContextBaseJavaModule impl
 	@ReactMethod
 	public void initCheckout(final String session, final Promise promise) {
 
+		this.promise = promise;
+		
 		Handler handler = new Handler(reactContext.getMainLooper());
 
 		handler.post(new Runnable() {
@@ -88,8 +90,6 @@ public class RNAltheaAdyenCheckoutModule extends ReactContextBaseJavaModule impl
 					@Override
 					public void onPaymentInitialized(@NonNull StartPaymentParameters startPaymentParameters) {
 
-						RNAltheaAdyenCheckoutModule.this.promise = promise;
-
 						PaymentMethodHandler checkoutHandler = CheckoutController.getCheckoutHandler(startPaymentParameters);
 
 						checkoutHandler.handlePaymentMethodDetails(getCurrentActivity(), REQUEST_CODE_CHECKOUT);
@@ -98,7 +98,7 @@ public class RNAltheaAdyenCheckoutModule extends ReactContextBaseJavaModule impl
 					@Override
 					public void onError(@NonNull CheckoutException error) {
 
-						RNAltheaAdyenCheckoutModule.this.promise.reject(E_PAYMENT_FAILED, error.getMessage());
+						promise.reject(E_PAYMENT_FAILED, error.getMessage());
 					}
 				});
 			}
@@ -120,7 +120,7 @@ public class RNAltheaAdyenCheckoutModule extends ReactContextBaseJavaModule impl
 
 				PaymentResult paymentResult = PaymentMethodHandler.Util.getPaymentResult(data);
 
-				this.promise.resolve(paymentResult.getPayload());
+				promise.resolve(paymentResult.getPayload());
 
 			} else {
 
@@ -128,10 +128,18 @@ public class RNAltheaAdyenCheckoutModule extends ReactContextBaseJavaModule impl
 
 				if (resultCode == PaymentMethodHandler.RESULT_CODE_CANCELED) {
 
-					this.promise.reject(E_PAYMENT_CANCELED, checkoutException.getMessage());
+					String message = (checkoutException == null)
+									 ? "You have canceled the order. Please try again."
+									 : checkoutException.getMessage();
+
+					promise.reject(E_PAYMENT_CANCELED, message);
 				} else {
 
-					this.promise.reject(E_PAYMENT_FAILED, checkoutException.getMessage());
+					String message = (checkoutException == null)
+									 ? "Your payment has failed. Please try again later."
+									 : checkoutException.getMessage();
+
+					promise.reject(E_PAYMENT_FAILED, message);
 				}
 			}
 		}
