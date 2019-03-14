@@ -11,6 +11,7 @@
 		E1752658223A6BBE00AD3A0D /* Adyen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1752656223A6BBE00AD3A0D /* Adyen.framework */; };
 		E1752659223A6BBE00AD3A0D /* AdyenInternal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1752657223A6BBE00AD3A0D /* AdyenInternal.framework */; };
 		E175265C223A6BF000AD3A0D /* RNAltheaAdyenCheckout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E175265B223A6BEF00AD3A0D /* RNAltheaAdyenCheckout.swift */; };
+		E1AFE2E8223A99E200C775B6 /* Adyen3DS2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1AFE2E7223A99E200C775B6 /* Adyen3DS2.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,6 +33,7 @@
 		E1752657223A6BBE00AD3A0D /* AdyenInternal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdyenInternal.framework; path = Frameworks/AdyenInternal.framework; sourceTree = "<group>"; };
 		E175265A223A6BEF00AD3A0D /* RNAltheaAdyenCheckout-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RNAltheaAdyenCheckout-Bridging-Header.h"; sourceTree = "<group>"; };
 		E175265B223A6BEF00AD3A0D /* RNAltheaAdyenCheckout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNAltheaAdyenCheckout.swift; sourceTree = "<group>"; };
+		E1AFE2E7223A99E200C775B6 /* Adyen3DS2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Adyen3DS2.framework; path = Frameworks/Adyen3DS2.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1AFE2E8223A99E200C775B6 /* Adyen3DS2.framework in Frameworks */,
 				E1752658223A6BBE00AD3A0D /* Adyen.framework in Frameworks */,
 				E1752659223A6BBE00AD3A0D /* AdyenInternal.framework in Frameworks */,
 			);
@@ -69,6 +72,7 @@
 		E1751F292237C65E00AD3A0D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E1AFE2E7223A99E200C775B6 /* Adyen3DS2.framework */,
 				E1752656223A6BBE00AD3A0D /* Adyen.framework */,
 				E1752657223A6BBE00AD3A0D /* AdyenInternal.framework */,
 			);
