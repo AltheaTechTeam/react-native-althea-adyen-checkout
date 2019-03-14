@@ -8,130 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		B3E7B58A1CC2AC0600A0062D /* RNAltheaAdyenCheckout.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNAltheaAdyenCheckout.m */; };
-		E1751F2A2237C65E00AD3A0D /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1751F082237C3E600AD3A0D /* libReact.a */; };
+		E1752658223A6BBE00AD3A0D /* Adyen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1752656223A6BBE00AD3A0D /* Adyen.framework */; };
+		E1752659223A6BBE00AD3A0D /* AdyenInternal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1752657223A6BBE00AD3A0D /* AdyenInternal.framework */; };
+		E175265C223A6BF000AD3A0D /* RNAltheaAdyenCheckout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E175265B223A6BEF00AD3A0D /* RNAltheaAdyenCheckout.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		E1751F072237C3E600AD3A0D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E1751EF42237C3E600AD3A0D /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 83CBBA2E1A601D0E00E9B192;
-			remoteInfo = React;
-		};
-		E1751F092237C3E600AD3A0D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E1751EF42237C3E600AD3A0D /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2D2A28131D9B038B00D4039D;
-			remoteInfo = "React-tvOS";
-		};
-		E1751F0B2237C3E600AD3A0D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E1751EF42237C3E600AD3A0D /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3D3C059A1DE3340900C268FA;
-			remoteInfo = yoga;
-		};
-		E1751F0D2237C3E600AD3A0D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E1751EF42237C3E600AD3A0D /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3D3C06751DE3340C00C268FA;
-			remoteInfo = "yoga-tvOS";
-		};
-		E1751F0F2237C3E600AD3A0D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E1751EF42237C3E600AD3A0D /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3D3CD9251DE5FBEC00167DC4;
-			remoteInfo = cxxreact;
-		};
-		E1751F112237C3E600AD3A0D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E1751EF42237C3E600AD3A0D /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3D3CD9321DE5FBEE00167DC4;
-			remoteInfo = "cxxreact-tvOS";
-		};
-		E1751F132237C3E600AD3A0D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E1751EF42237C3E600AD3A0D /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3D3CD90B1DE5FBD600167DC4;
-			remoteInfo = jschelpers;
-		};
-		E1751F152237C3E600AD3A0D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E1751EF42237C3E600AD3A0D /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3D3CD9181DE5FBD800167DC4;
-			remoteInfo = "jschelpers-tvOS";
-		};
-		E1751F172237C3E600AD3A0D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E1751EF42237C3E600AD3A0D /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EBF21BDC1FC498900052F4D5;
-			remoteInfo = jsinspector;
-		};
-		E1751F192237C3E600AD3A0D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E1751EF42237C3E600AD3A0D /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EBF21BFA1FC4989A0052F4D5;
-			remoteInfo = "jsinspector-tvOS";
-		};
-		E1751F1B2237C3E600AD3A0D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E1751EF42237C3E600AD3A0D /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 139D7ECE1E25DB7D00323FB7;
-			remoteInfo = "third-party";
-		};
-		E1751F1D2237C3E600AD3A0D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E1751EF42237C3E600AD3A0D /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3D383D3C1EBD27B6005632C8;
-			remoteInfo = "third-party-tvOS";
-		};
-		E1751F1F2237C3E600AD3A0D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E1751EF42237C3E600AD3A0D /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 139D7E881E25C6D100323FB7;
-			remoteInfo = "double-conversion";
-		};
-		E1751F212237C3E600AD3A0D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E1751EF42237C3E600AD3A0D /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3D383D621EBD27B9005632C8;
-			remoteInfo = "double-conversion-tvOS";
-		};
-		E1751F232237C3E600AD3A0D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E1751EF42237C3E600AD3A0D /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 9936F3131F5F2E4B0010BF04;
-			remoteInfo = privatedata;
-		};
-		E1751F252237C3E600AD3A0D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E1751EF42237C3E600AD3A0D /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 9936F32F1F5F2E5B0010BF04;
-			remoteInfo = "privatedata-tvOS";
-		};
-		E1751F272237C3F800AD3A0D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E1751EF42237C3E600AD3A0D /* React.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 83CBBA2D1A601D0E00E9B192;
-			remoteInfo = React;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		58B511D91A9E6C8500147676 /* CopyFiles */ = {
@@ -147,9 +27,11 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libRNAltheaAdyenCheckout.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNAltheaAdyenCheckout.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		B3E7B5881CC2AC0600A0062D /* RNAltheaAdyenCheckout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNAltheaAdyenCheckout.h; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* RNAltheaAdyenCheckout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNAltheaAdyenCheckout.m; sourceTree = "<group>"; };
-		E1751EF42237C3E600AD3A0D /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		E1752656223A6BBE00AD3A0D /* Adyen.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Adyen.framework; path = Frameworks/Adyen.framework; sourceTree = "<group>"; };
+		E1752657223A6BBE00AD3A0D /* AdyenInternal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdyenInternal.framework; path = Frameworks/AdyenInternal.framework; sourceTree = "<group>"; };
+		E175265A223A6BEF00AD3A0D /* RNAltheaAdyenCheckout-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RNAltheaAdyenCheckout-Bridging-Header.h"; sourceTree = "<group>"; };
+		E175265B223A6BEF00AD3A0D /* RNAltheaAdyenCheckout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNAltheaAdyenCheckout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,7 +39,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1751F2A2237C65E00AD3A0D /* libReact.a in Frameworks */,
+				E1752658223A6BBE00AD3A0D /* Adyen.framework in Frameworks */,
+				E1752659223A6BBE00AD3A0D /* AdyenInternal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,49 +58,19 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
-				B3E7B5881CC2AC0600A0062D /* RNAltheaAdyenCheckout.h */,
+				E175265B223A6BEF00AD3A0D /* RNAltheaAdyenCheckout.swift */,
 				B3E7B5891CC2AC0600A0062D /* RNAltheaAdyenCheckout.m */,
 				134814211AA4EA7D00B7C361 /* Products */,
-				E1751EF32237C3B600AD3A0D /* Libraries */,
 				E1751F292237C65E00AD3A0D /* Frameworks */,
+				E175265A223A6BEF00AD3A0D /* RNAltheaAdyenCheckout-Bridging-Header.h */,
 			);
-			sourceTree = "<group>";
-		};
-		E1751EF32237C3B600AD3A0D /* Libraries */ = {
-			isa = PBXGroup;
-			children = (
-				E1751EF42237C3E600AD3A0D /* React.xcodeproj */,
-			);
-			name = Libraries;
-			path = "New Group";
-			sourceTree = "<group>";
-		};
-		E1751EF52237C3E600AD3A0D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				E1751F082237C3E600AD3A0D /* libReact.a */,
-				E1751F0A2237C3E600AD3A0D /* libReact.a */,
-				E1751F0C2237C3E600AD3A0D /* libyoga.a */,
-				E1751F0E2237C3E600AD3A0D /* libyoga.a */,
-				E1751F102237C3E600AD3A0D /* libcxxreact.a */,
-				E1751F122237C3E600AD3A0D /* libcxxreact.a */,
-				E1751F142237C3E600AD3A0D /* libjschelpers.a */,
-				E1751F162237C3E600AD3A0D /* libjschelpers.a */,
-				E1751F182237C3E600AD3A0D /* libjsinspector.a */,
-				E1751F1A2237C3E600AD3A0D /* libjsinspector-tvOS.a */,
-				E1751F1C2237C3E600AD3A0D /* libthird-party.a */,
-				E1751F1E2237C3E600AD3A0D /* libthird-party.a */,
-				E1751F202237C3E600AD3A0D /* libdouble-conversion.a */,
-				E1751F222237C3E600AD3A0D /* libdouble-conversion.a */,
-				E1751F242237C3E600AD3A0D /* libprivatedata.a */,
-				E1751F262237C3E600AD3A0D /* libprivatedata-tvOS.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		E1751F292237C65E00AD3A0D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E1752656223A6BBE00AD3A0D /* Adyen.framework */,
+				E1752657223A6BBE00AD3A0D /* AdyenInternal.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -236,7 +89,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				E1751F282237C3F800AD3A0D /* PBXTargetDependency */,
 			);
 			name = RNAltheaAdyenCheckout;
 			productName = RCTDataManager;
@@ -254,6 +106,7 @@
 				TargetAttributes = {
 					58B511DA1A9E6C8500147676 = {
 						CreatedOnToolsVersion = 6.1.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -267,12 +120,6 @@
 			mainGroup = 58B511D21A9E6C8500147676;
 			productRefGroup = 58B511D21A9E6C8500147676;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = E1751EF52237C3E600AD3A0D /* Products */;
-					ProjectRef = E1751EF42237C3E600AD3A0D /* React.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				58B511DA1A9E6C8500147676 /* RNAltheaAdyenCheckout */,
@@ -280,139 +127,17 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXReferenceProxy section */
-		E1751F082237C3E600AD3A0D /* libReact.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libReact.a;
-			remoteRef = E1751F072237C3E600AD3A0D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E1751F0A2237C3E600AD3A0D /* libReact.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libReact.a;
-			remoteRef = E1751F092237C3E600AD3A0D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E1751F0C2237C3E600AD3A0D /* libyoga.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libyoga.a;
-			remoteRef = E1751F0B2237C3E600AD3A0D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E1751F0E2237C3E600AD3A0D /* libyoga.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libyoga.a;
-			remoteRef = E1751F0D2237C3E600AD3A0D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E1751F102237C3E600AD3A0D /* libcxxreact.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libcxxreact.a;
-			remoteRef = E1751F0F2237C3E600AD3A0D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E1751F122237C3E600AD3A0D /* libcxxreact.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libcxxreact.a;
-			remoteRef = E1751F112237C3E600AD3A0D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E1751F142237C3E600AD3A0D /* libjschelpers.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libjschelpers.a;
-			remoteRef = E1751F132237C3E600AD3A0D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E1751F162237C3E600AD3A0D /* libjschelpers.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libjschelpers.a;
-			remoteRef = E1751F152237C3E600AD3A0D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E1751F182237C3E600AD3A0D /* libjsinspector.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libjsinspector.a;
-			remoteRef = E1751F172237C3E600AD3A0D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E1751F1A2237C3E600AD3A0D /* libjsinspector-tvOS.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libjsinspector-tvOS.a";
-			remoteRef = E1751F192237C3E600AD3A0D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E1751F1C2237C3E600AD3A0D /* libthird-party.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libthird-party.a";
-			remoteRef = E1751F1B2237C3E600AD3A0D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E1751F1E2237C3E600AD3A0D /* libthird-party.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libthird-party.a";
-			remoteRef = E1751F1D2237C3E600AD3A0D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E1751F202237C3E600AD3A0D /* libdouble-conversion.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libdouble-conversion.a";
-			remoteRef = E1751F1F2237C3E600AD3A0D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E1751F222237C3E600AD3A0D /* libdouble-conversion.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libdouble-conversion.a";
-			remoteRef = E1751F212237C3E600AD3A0D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E1751F242237C3E600AD3A0D /* libprivatedata.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libprivatedata.a;
-			remoteRef = E1751F232237C3E600AD3A0D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E1751F262237C3E600AD3A0D /* libprivatedata-tvOS.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libprivatedata-tvOS.a";
-			remoteRef = E1751F252237C3E600AD3A0D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
-
 /* Begin PBXSourcesBuildPhase section */
 		58B511D71A9E6C8500147676 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E175265C223A6BF000AD3A0D /* RNAltheaAdyenCheckout.swift in Sources */,
 				B3E7B58A1CC2AC0600A0062D /* RNAltheaAdyenCheckout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		E1751F282237C3F800AD3A0D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = React;
-			targetProxy = E1751F272237C3F800AD3A0D /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		58B511ED1A9E6C8500147676 /* Debug */ = {
@@ -437,6 +162,7 @@
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Frameworks";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -452,7 +178,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -481,6 +207,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Frameworks";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -489,7 +216,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -499,32 +226,49 @@
 		58B511F01A9E6C8500147676 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/Frameworks",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../../../React/**",
 					"$(SRCROOT)/../../react-native/React/**",
 				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = RNAltheaAdyenCheckout;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "RNAltheaAdyenCheckout-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
 		58B511F11A9E6C8500147676 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/Frameworks",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../../../React/**",
 					"$(SRCROOT)/../../react-native/React/**",
 				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = RNAltheaAdyenCheckout;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "RNAltheaAdyenCheckout-Bridging-Header.h";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
