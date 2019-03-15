@@ -9,12 +9,15 @@
 import Foundation
 import Adyen
 
-@objc
+@objc(RNAltheaAdyenCheckout)
 class RNAltheaAdyenCheckout: NSObject {
     
     @objc
-    func getPaymentToken() -> String {
+    func getPaymentToken(
+        _ resolve: RCTPromiseResolveBlock,
+        rejecter reject: RCTPromiseRejectBlock
+        ) -> Void {
         
-        return "It works!";
+        resolve("It works!");
     }
 }

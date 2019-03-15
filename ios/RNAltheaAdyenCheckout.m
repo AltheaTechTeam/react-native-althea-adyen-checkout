@@ -7,6 +7,9 @@
   
 @interface RCT_EXTERN_MODULE(RNAltheaAdyenCheckout, NSObject)
 
-RCT_EXTERN_METHOD(getPaymentToken)
+RCT_EXTERN_METHOD(
+  getPaymentToken: (RCTPromiseResolveBlock)resolve
+  rejecter: (RCTPromiseRejectBlock)reject
+)
 
 @end
